@@ -25,7 +25,7 @@ Product
 	HotFlg,
 	NewFlg
 	Status
-
+	
 
 Bill
 	CustomerId,
@@ -139,3 +139,18 @@ SystemConfig
 	Value2
 	Value3
 	Value4
+Announcement
+AnnouncementUser
+
+Color
+Size
+
+ProductSize
+ProductColor
+ProductQuantity
+ProductImage
+
+Function
+WholePrice
+
+Permission

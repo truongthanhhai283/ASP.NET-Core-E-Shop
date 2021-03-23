@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ShopOnlineApp.Infrastructure.SharedKernel
+﻿namespace ShopOnlineApp.Infrastructure.SharedKernel
 {
     public abstract class DomainEntity<T>
     {
