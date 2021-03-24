@@ -15,6 +15,7 @@ using ShopOnlineApp.Data.EF.Repositories;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.IRepositories;
 using ShopOnlineApp.Helpers;
+using ShopOnlineApp.Infrastructure.Interfaces;
 using ShopOnlineApp.Models;
 using ShopOnlineApp.Services;
 using System;
@@ -91,6 +92,9 @@ namespace ShopOnlineApp
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
             services.AddTransient<IFunctionService, FunctionService>();
             services.AddTransient<IProductService, ProductService>();
+
+            services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
+            services.AddTransient(typeof(IRepository<,>), typeof(EFRepository<,>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
