@@ -5,6 +5,28 @@
     "bootstrap": "3.3.7",
     "jquery": "2.2.0",
     "jquery-validation": "1.14.0",
-    "jquery-validation-unobtrusive": "3.2.6"
-  }
+    "jquery-validation-unobtrusive": "3.2.6",
+    "gentelella": "^1.4.0",
+    "components-font-awesome": "^5.15.3",
+    "nprogress": "^0.2.0",
+    "fastclick": "^1.0.6",
+    "chart.js": "^2.9.4",
+    "flot.orderbars": "^1.0.0",
+    "moment": "^2.29.1"
+  },
+  "homepage": "https://github.com/truongthanhhai283/ASP.NET-Core-E-Shop",
+  "authors": [
+    "TruongThanhHai28 <truongthanhhai283@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "wwwroot/lib",
+    "test",
+    "tests"
+  ]
 }
