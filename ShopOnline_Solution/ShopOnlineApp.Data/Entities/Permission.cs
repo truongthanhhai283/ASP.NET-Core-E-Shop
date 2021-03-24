@@ -13,8 +13,6 @@ namespace ShopOnlineApp.Data.Entities
         [StringLength(450)]
         public Guid RoleId { get; set; }
 
-        [StringLength(128)]
-        [Required]
         public string FunctionId { get; set; }
 
         public bool CanCreate { set; get; }

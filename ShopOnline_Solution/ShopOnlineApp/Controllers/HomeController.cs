@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ShopOnlineApp.Extensions;
 using ShopOnlineApp.Models;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace ShopOnlineApp.Controllers
         [Authorize]
         public IActionResult Index()
         {
+            var email = User.GetSpecificClaim("Email");
             return View();
         }
 

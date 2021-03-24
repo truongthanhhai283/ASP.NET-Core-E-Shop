@@ -14,6 +14,7 @@ using ShopOnlineApp.Data.EF;
 using ShopOnlineApp.Data.EF.Repositories;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.IRepositories;
+using ShopOnlineApp.Helpers;
 using ShopOnlineApp.Models;
 using ShopOnlineApp.Services;
 using System;
@@ -71,6 +72,8 @@ namespace ShopOnlineApp
 
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<DbInitializer>();
+
+            services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, CustomClaimsPrincipalFactory>();
 
             services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
 

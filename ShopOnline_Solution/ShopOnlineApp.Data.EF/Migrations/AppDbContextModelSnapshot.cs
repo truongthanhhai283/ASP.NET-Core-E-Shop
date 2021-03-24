@@ -18,7 +18,7 @@ namespace ShopOnlineApp.Data.EF.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.0.0-rtm-26452")
+                .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -152,8 +152,7 @@ namespace ShopOnlineApp.Data.EF.Migrations
                     b.Property<string>("Name")
                         .HasMaxLength(250);
 
-                    b.Property<string>("PageId")
-                        .HasMaxLength(20);
+                    b.Property<string>("PageId");
 
                     b.HasKey("Id");
 
@@ -194,9 +193,7 @@ namespace ShopOnlineApp.Data.EF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("AnnouncementId")
-                        .IsRequired()
-                        .HasMaxLength(128);
+                    b.Property<string>("AnnouncementId");
 
                     b.Property<bool?>("HasRead");
 
@@ -594,9 +591,7 @@ namespace ShopOnlineApp.Data.EF.Migrations
 
                     b.Property<bool>("CanUpdate");
 
-                    b.Property<string>("FunctionId")
-                        .IsRequired()
-                        .HasMaxLength(128);
+                    b.Property<string>("FunctionId");
 
                     b.Property<Guid>("RoleId")
                         .HasMaxLength(450);
@@ -915,8 +910,7 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 {
                     b.HasOne("ShopOnlineApp.Data.Entities.Announcement", "Announcement")
                         .WithMany("AnnouncementUsers")
-                        .HasForeignKey("AnnouncementId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("AnnouncementId");
                 });
 
             modelBuilder.Entity("ShopOnlineApp.Data.Entities.Bill", b =>
@@ -967,8 +961,7 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 {
                     b.HasOne("ShopOnlineApp.Data.Entities.Function", "Function")
                         .WithMany()
-                        .HasForeignKey("FunctionId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("FunctionId");
 
                     b.HasOne("ShopOnlineApp.Data.Entities.AppRole", "AppRole")
                         .WithMany()

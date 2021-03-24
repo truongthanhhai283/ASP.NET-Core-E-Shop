@@ -13,8 +13,8 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "AdvertistmentPages",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -25,11 +25,11 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "AppRoleClaims",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ClaimType = table.Column<string>(nullable: true),
+                    ClaimValue = table.Column<string>(nullable: true),
+                    RoleId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -40,11 +40,11 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "AppRoles",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<Guid>(nullable: false),
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(maxLength: 250, nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    NormalizedName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -55,11 +55,11 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "AppUserClaims",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ClaimType = table.Column<string>(nullable: true),
+                    ClaimValue = table.Column<string>(nullable: true),
+                    UserId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -70,10 +70,10 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "AppUserLogins",
                 columns: table => new
                 {
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    LoginProvider = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ProviderKey = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    UserId = table.Column<Guid>(nullable: false),
+                    LoginProvider = table.Column<string>(nullable: true),
+                    ProviderDisplayName = table.Column<string>(nullable: true),
+                    ProviderKey = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -84,8 +84,8 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "AppUserRoles",
                 columns: table => new
                 {
-                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    RoleId = table.Column<Guid>(nullable: false),
+                    UserId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -96,28 +96,28 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "AppUsers",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    AccessFailedCount = table.Column<int>(type: "int", nullable: false),
-                    Avatar = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Balance = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
-                    BirthDay = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
-                    NormalizedEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    NormalizedUserName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<Guid>(nullable: false),
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    Avatar = table.Column<string>(nullable: true),
+                    Balance = table.Column<decimal>(nullable: false),
+                    BirthDay = table.Column<DateTime>(nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    EmailConfirmed = table.Column<bool>(nullable: false),
+                    FullName = table.Column<string>(nullable: true),
+                    LockoutEnabled = table.Column<bool>(nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
+                    NormalizedEmail = table.Column<string>(nullable: true),
+                    NormalizedUserName = table.Column<string>(nullable: true),
+                    PasswordHash = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(nullable: false),
+                    SecurityStamp = table.Column<string>(nullable: true),
+                    Status = table.Column<int>(nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(nullable: false),
+                    UserName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -128,10 +128,10 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "AppUserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    LoginProvider = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    UserId = table.Column<Guid>(nullable: false),
+                    LoginProvider = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Value = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -142,23 +142,23 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "Blogs",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    HomeFlag = table.Column<bool>(type: "bit", nullable: true),
-                    HotFlag = table.Column<bool>(type: "bit", nullable: true),
-                    Image = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
-                    SeoAlias = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    SeoDescription = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    SeoKeywords = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    SeoPageTitle = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    Tags = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ViewCount = table.Column<int>(type: "int", nullable: true)
+                    Content = table.Column<string>(nullable: true),
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
+                    Description = table.Column<string>(maxLength: 500, nullable: true),
+                    HomeFlag = table.Column<bool>(nullable: true),
+                    HotFlag = table.Column<bool>(nullable: true),
+                    Image = table.Column<string>(maxLength: 256, nullable: true),
+                    Name = table.Column<string>(maxLength: 256, nullable: false),
+                    SeoAlias = table.Column<string>(maxLength: 256, nullable: true),
+                    SeoDescription = table.Column<string>(maxLength: 256, nullable: true),
+                    SeoKeywords = table.Column<string>(maxLength: 256, nullable: true),
+                    SeoPageTitle = table.Column<string>(maxLength: 256, nullable: true),
+                    Status = table.Column<int>(nullable: false),
+                    Tags = table.Column<string>(nullable: true),
+                    ViewCount = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -169,10 +169,10 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "Colors",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Code = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true)
+                    Code = table.Column<string>(maxLength: 250, nullable: true),
+                    Name = table.Column<string>(maxLength: 250, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -183,16 +183,16 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "ContactDetails",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    Lat = table.Column<double>(type: "float", nullable: true),
-                    Lng = table.Column<double>(type: "float", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    Other = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Phone = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    Website = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true)
+                    Id = table.Column<string>(maxLength: 255, nullable: false),
+                    Address = table.Column<string>(maxLength: 250, nullable: true),
+                    Email = table.Column<string>(maxLength: 250, nullable: true),
+                    Lat = table.Column<double>(nullable: true),
+                    Lng = table.Column<double>(nullable: true),
+                    Name = table.Column<string>(maxLength: 250, nullable: false),
+                    Other = table.Column<string>(nullable: true),
+                    Phone = table.Column<string>(maxLength: 50, nullable: true),
+                    Status = table.Column<int>(nullable: false),
+                    Website = table.Column<string>(maxLength: 250, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -203,14 +203,14 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "Feedbacks",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    Message = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false)
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
+                    Email = table.Column<string>(maxLength: 250, nullable: true),
+                    Message = table.Column<string>(maxLength: 500, nullable: true),
+                    Name = table.Column<string>(maxLength: 250, nullable: false),
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -222,7 +222,7 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Content = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -233,13 +233,13 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "Functions",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    IconCss = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    ParentId = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: true),
-                    SortOrder = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    URL = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false)
+                    Id = table.Column<string>(nullable: false),
+                    IconCss = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(maxLength: 128, nullable: false),
+                    ParentId = table.Column<string>(maxLength: 128, nullable: true),
+                    SortOrder = table.Column<int>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
+                    URL = table.Column<string>(maxLength: 250, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -250,11 +250,11 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "Languages",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    IsDefault = table.Column<bool>(type: "bit", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    Resources = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Status = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<string>(nullable: false),
+                    IsDefault = table.Column<bool>(nullable: false),
+                    Name = table.Column<string>(maxLength: 128, nullable: false),
+                    Resources = table.Column<string>(nullable: true),
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -265,12 +265,12 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "Pages",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", maxLength: 255, nullable: false)
+                    Id = table.Column<int>(maxLength: 255, nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Alias = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false)
+                    Alias = table.Column<string>(maxLength: 256, nullable: false),
+                    Content = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(maxLength: 256, nullable: false),
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -281,22 +281,22 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "ProductCategories",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    HomeFlag = table.Column<bool>(type: "bit", nullable: true),
-                    HomeOrder = table.Column<int>(type: "int", nullable: true),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ParentId = table.Column<int>(type: "int", nullable: true),
-                    SeoAlias = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SeoDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SeoKeywords = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SeoPageTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SortOrder = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false)
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    HomeFlag = table.Column<bool>(nullable: true),
+                    HomeOrder = table.Column<int>(nullable: true),
+                    Image = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    ParentId = table.Column<int>(nullable: true),
+                    SeoAlias = table.Column<string>(nullable: true),
+                    SeoDescription = table.Column<string>(nullable: true),
+                    SeoKeywords = table.Column<string>(nullable: true),
+                    SeoPageTitle = table.Column<string>(nullable: true),
+                    SortOrder = table.Column<int>(nullable: false),
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -307,9 +307,9 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "Sizes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true)
+                    Name = table.Column<string>(maxLength: 250, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -320,16 +320,16 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "Slides",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    DisplayOrder = table.Column<int>(type: "int", nullable: true),
-                    GroupAlias = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    Status = table.Column<bool>(type: "bit", nullable: false),
-                    Url = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true)
+                    Content = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(maxLength: 250, nullable: true),
+                    DisplayOrder = table.Column<int>(nullable: true),
+                    GroupAlias = table.Column<string>(maxLength: 25, nullable: false),
+                    Image = table.Column<string>(maxLength: 250, nullable: false),
+                    Name = table.Column<string>(maxLength: 250, nullable: false),
+                    Status = table.Column<bool>(nullable: false),
+                    Url = table.Column<string>(maxLength: 250, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -340,14 +340,14 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "SystemConfigs",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    Value1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Value2 = table.Column<int>(type: "int", nullable: true),
-                    Value3 = table.Column<bool>(type: "bit", nullable: true),
-                    Value4 = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Value5 = table.Column<decimal>(type: "decimal(18, 2)", nullable: true)
+                    Id = table.Column<string>(maxLength: 255, nullable: false),
+                    Name = table.Column<string>(maxLength: 128, nullable: false),
+                    Status = table.Column<int>(nullable: false),
+                    Value1 = table.Column<string>(nullable: true),
+                    Value2 = table.Column<int>(nullable: true),
+                    Value3 = table.Column<bool>(nullable: true),
+                    Value4 = table.Column<DateTime>(nullable: true),
+                    Value5 = table.Column<decimal>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -359,8 +359,8 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Type = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    Name = table.Column<string>(maxLength: 50, nullable: false),
+                    Type = table.Column<string>(maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -371,9 +371,9 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "AdvertistmentPositions",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    PageId = table.Column<string>(type: "nvarchar(450)", maxLength: 20, nullable: true)
+                    Id = table.Column<string>(maxLength: 20, nullable: false),
+                    Name = table.Column<string>(maxLength: 250, nullable: true),
+                    PageId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -390,13 +390,13 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "Announcements",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Content = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Id = table.Column<string>(nullable: false),
+                    Content = table.Column<string>(maxLength: 250, nullable: true),
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
+                    Title = table.Column<string>(maxLength: 250, nullable: false),
+                    UserId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -413,18 +413,18 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "Bills",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    BillStatus = table.Column<int>(type: "int", nullable: false),
-                    CustomerAddress = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
-                    CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CustomerMessage = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
-                    CustomerMobile = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    CustomerName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PaymentMethod = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false)
+                    BillStatus = table.Column<int>(nullable: false),
+                    CustomerAddress = table.Column<string>(maxLength: 256, nullable: false),
+                    CustomerId = table.Column<Guid>(nullable: false),
+                    CustomerMessage = table.Column<string>(maxLength: 256, nullable: false),
+                    CustomerMobile = table.Column<string>(maxLength: 50, nullable: false),
+                    CustomerName = table.Column<string>(maxLength: 256, nullable: false),
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
+                    PaymentMethod = table.Column<int>(nullable: false),
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -441,14 +441,14 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "Permissions",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CanCreate = table.Column<bool>(type: "bit", nullable: false),
-                    CanDelete = table.Column<bool>(type: "bit", nullable: false),
-                    CanRead = table.Column<bool>(type: "bit", nullable: false),
-                    CanUpdate = table.Column<bool>(type: "bit", nullable: false),
-                    FunctionId = table.Column<string>(type: "nvarchar(450)", maxLength: 128, nullable: false),
-                    RoleId = table.Column<Guid>(type: "uniqueidentifier", maxLength: 450, nullable: false)
+                    CanCreate = table.Column<bool>(nullable: false),
+                    CanDelete = table.Column<bool>(nullable: false),
+                    CanRead = table.Column<bool>(nullable: false),
+                    CanUpdate = table.Column<bool>(nullable: false),
+                    FunctionId = table.Column<string>(nullable: true),
+                    RoleId = table.Column<Guid>(maxLength: 450, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -458,7 +458,7 @@ namespace ShopOnlineApp.Data.EF.Migrations
                         column: x => x.FunctionId,
                         principalTable: "Functions",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Permissions_AppRoles_RoleId",
                         column: x => x.RoleId,
@@ -471,28 +471,28 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "Products",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
-                    HomeFlag = table.Column<bool>(type: "bit", nullable: true),
-                    HotFlag = table.Column<bool>(type: "bit", nullable: true),
-                    Image = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    OriginalPrice = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
-                    PromotionPrice = table.Column<decimal>(type: "decimal(18, 2)", nullable: true),
+                    CategoryId = table.Column<int>(nullable: false),
+                    Content = table.Column<string>(nullable: true),
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
+                    Description = table.Column<string>(maxLength: 255, nullable: true),
+                    HomeFlag = table.Column<bool>(nullable: true),
+                    HotFlag = table.Column<bool>(nullable: true),
+                    Image = table.Column<string>(maxLength: 255, nullable: true),
+                    Name = table.Column<string>(maxLength: 255, nullable: false),
+                    OriginalPrice = table.Column<decimal>(nullable: false),
+                    Price = table.Column<decimal>(nullable: false),
+                    PromotionPrice = table.Column<decimal>(nullable: true),
                     SeoAlias = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true),
-                    SeoDescription = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
-                    SeoKeywords = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
-                    SeoPageTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    Tags = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
-                    Unit = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
-                    ViewCount = table.Column<int>(type: "int", nullable: true)
+                    SeoDescription = table.Column<string>(maxLength: 255, nullable: true),
+                    SeoKeywords = table.Column<string>(maxLength: 255, nullable: true),
+                    SeoPageTitle = table.Column<string>(nullable: true),
+                    Status = table.Column<int>(nullable: false),
+                    Tags = table.Column<string>(maxLength: 255, nullable: true),
+                    Unit = table.Column<string>(maxLength: 255, nullable: true),
+                    ViewCount = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -509,9 +509,9 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "BlogTags",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    BlogId = table.Column<int>(type: "int", nullable: false),
+                    BlogId = table.Column<int>(nullable: false),
                     TagId = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
@@ -535,17 +535,17 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "Advertistments",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    Image = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    PositionId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    SortOrder = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    Url = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true)
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
+                    Description = table.Column<string>(maxLength: 250, nullable: true),
+                    Image = table.Column<string>(maxLength: 250, nullable: true),
+                    Name = table.Column<string>(maxLength: 250, nullable: true),
+                    PositionId = table.Column<string>(maxLength: 20, nullable: true),
+                    SortOrder = table.Column<int>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
+                    Url = table.Column<string>(maxLength: 250, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -562,11 +562,11 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "AnnouncementUsers",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AnnouncementId = table.Column<string>(type: "nvarchar(450)", maxLength: 128, nullable: false),
-                    HasRead = table.Column<bool>(type: "bit", nullable: true),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    AnnouncementId = table.Column<string>(nullable: true),
+                    HasRead = table.Column<bool>(nullable: true),
+                    UserId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -576,21 +576,21 @@ namespace ShopOnlineApp.Data.EF.Migrations
                         column: x => x.AnnouncementId,
                         principalTable: "Announcements",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
                 name: "BillDetails",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    BillId = table.Column<int>(type: "int", nullable: false),
-                    ColorId = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    SizeId = table.Column<int>(type: "int", nullable: false)
+                    BillId = table.Column<int>(nullable: false),
+                    ColorId = table.Column<int>(nullable: false),
+                    Price = table.Column<decimal>(nullable: false),
+                    ProductId = table.Column<int>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false),
+                    SizeId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -625,11 +625,11 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "ProductImages",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Caption = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    Path = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    ProductId = table.Column<int>(type: "int", nullable: false)
+                    Caption = table.Column<string>(maxLength: 250, nullable: true),
+                    Path = table.Column<string>(maxLength: 250, nullable: true),
+                    ProductId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -646,12 +646,12 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "ProductQuantities",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ColorId = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    SizeId = table.Column<int>(type: "int", nullable: false)
+                    ColorId = table.Column<int>(nullable: false),
+                    ProductId = table.Column<int>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false),
+                    SizeId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -680,9 +680,9 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "ProductTags",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    ProductId = table.Column<int>(nullable: false),
                     TagId = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
@@ -706,12 +706,12 @@ namespace ShopOnlineApp.Data.EF.Migrations
                 name: "WholePrices",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    FromQuantity = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    ToQuantity = table.Column<int>(type: "int", nullable: false)
+                    FromQuantity = table.Column<int>(nullable: false),
+                    Price = table.Column<decimal>(nullable: false),
+                    ProductId = table.Column<int>(nullable: false),
+                    ToQuantity = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
