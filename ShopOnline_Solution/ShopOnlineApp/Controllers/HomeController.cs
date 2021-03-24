@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ShopOnlineApp.Models;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace ShopOnlineApp.Controllers
 {
     public class HomeController : Controller
     {
+        [Authorize]
         public IActionResult Index()
         {
             return View();
