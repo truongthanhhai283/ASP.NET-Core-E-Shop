@@ -33,6 +33,7 @@
   <ItemGroup>
     <None Include="wwwroot\admin-side\js\custom.js" />
     <None Include="wwwroot\admin-side\js\custom.min.js" />
+    <None Include="wwwroot\app\controllers\product-category\index.js" />
     <None Include="wwwroot\lib\twbs-pagination\README.md" />
   </ItemGroup>
 
