@@ -31,6 +31,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\admin-side\js\custom.js" />
+    <None Include="wwwroot\admin-side\js\custom.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ShopOnlineApp.Application\ShopOnlineApp.Application.csproj" />
     <ProjectReference Include="..\ShopOnlineApp.Data.EF\ShopOnlineApp.Data.EF.csproj" />
     <ProjectReference Include="..\ShopOnlineApp.Data\ShopOnlineApp.Data.csproj" />
