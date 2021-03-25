@@ -2,21 +2,21 @@
 using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.System;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Utilities.Dtos;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ShopOnlineApp.Application.Implementation
 {
     public class UserService : IUserService
     {
         private readonly UserManager<AppUser> _userManager;
+
         public UserService(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
@@ -39,7 +39,6 @@ namespace ShopOnlineApp.Application.Implementation
                 var appUser = await _userManager.FindByNameAsync(user.UserName);
                 if (appUser != null)
                     await _userManager.AddToRolesAsync(appUser, userVm.Roles);
-
             }
             return true;
         }
@@ -78,7 +77,6 @@ namespace ShopOnlineApp.Application.Implementation
                 PhoneNumber = x.PhoneNumber,
                 Status = x.Status,
                 DateCreated = x.DateCreated
-
             }).ToList();
             var paginationSet = new PagedResult<AppUserViewModel>()
             {
@@ -121,7 +119,6 @@ namespace ShopOnlineApp.Application.Implementation
                 user.PhoneNumber = userVm.PhoneNumber;
                 await _userManager.UpdateAsync(user);
             }
-
         }
     }
 }

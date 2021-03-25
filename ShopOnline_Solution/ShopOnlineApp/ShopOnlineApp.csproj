@@ -32,6 +32,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\Admin\Views\Bill\Index.cshtml" />
+    <None Include="Areas\Admin\Views\Bill\_DetailModal.cshtml" />
     <None Include="Areas\Admin\Views\Product\Index.cshtml" />
     <None Include="Areas\Admin\Views\Product\_AddEditModal.cshtml" />
     <None Include="Areas\Admin\Views\Role\Index.cshtml" />

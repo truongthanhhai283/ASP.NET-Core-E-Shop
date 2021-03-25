@@ -6,7 +6,7 @@ using ShopOnlineApp.Infrastructure.Interfaces;
 
 namespace ShopOnlineApp.Data.IRepositories
 {
-    public interface IProductRepository : IRepository<Product,int>
+    public interface ISizeRepository : IRepository<Size, int>
     {
     }
 }
