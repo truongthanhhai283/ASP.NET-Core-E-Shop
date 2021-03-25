@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using ShopOnlineApp.Application.ViewModels.Product;
-using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Application.ViewModels.System;
+using ShopOnlineApp.Data.Entities;
 
 namespace ShopOnlineApp.Application.AutoMapper
 {
@@ -22,8 +22,11 @@ namespace ShopOnlineApp.Application.AutoMapper
            c.SeoPageTitle, c.SeoAlias, c.SeoKeywords, c.SeoDescription));
 
             CreateMap<AppUserViewModel, AppUser>()
-           .ConstructUsing(c => new AppUser(c.Id.GetValueOrDefault(Guid.Empty), c.FullName, c.UserName,
-           c.Email, c.PhoneNumber, c.Avatar, c.Status));
+            .ConstructUsing(c => new AppUser(c.Id.GetValueOrDefault(Guid.Empty), c.FullName, c.UserName, 
+            c.Email, c.PhoneNumber, c.Avatar, c.Status));
+
+            CreateMap<PermissionViewModel, Permission>()
+            .ConstructUsing(c => new Permission(c.RoleId, c.FunctionId, c.CanCreate, c.CanRead, c.CanUpdate, c.CanDelete));
         }
     }
 }

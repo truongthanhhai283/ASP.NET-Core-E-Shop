@@ -10,6 +10,18 @@ namespace ShopOnlineApp.Data.Entities
     [Table("Permissions")]
     public class Permission : DomainEntity<int>
     {
+        public Permission() { }
+        public Permission(Guid roleId, string functionId, bool canCreate,
+            bool canRead, bool canUpdate, bool canDelete)
+        {
+            RoleId = roleId;
+            FunctionId = functionId;
+            CanCreate = canCreate;
+            CanRead = canRead;
+            CanUpdate = canUpdate;
+            CanDelete = canDelete;
+        }
+
         [StringLength(450)]
         public Guid RoleId { get; set; }
 
