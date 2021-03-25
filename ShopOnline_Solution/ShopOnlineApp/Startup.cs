@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using ShopOnlineApp.Application.Implementation;
 using ShopOnlineApp.Application.Interfaces;
+using ShopOnlineApp.Authorization;
 using ShopOnlineApp.Data;
 using ShopOnlineApp.Data.EF;
 using ShopOnlineApp.Data.EF.Repositories;
@@ -83,6 +85,8 @@ namespace ShopOnlineApp
 
 
             services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+
+            services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
 
             //Repositories
             services.AddTransient<IProductRepository, ProductRepository>();
