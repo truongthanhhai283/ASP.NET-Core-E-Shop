@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using OfficeOpenXml;
+using OfficeOpenXml.Table;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,9 +12,6 @@ using System.Net.Http.Headers;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Product;
 using ShopOnlineApp.Utilities.Helpers;
-using System;
-using OfficeOpenXml;
-using OfficeOpenXml.Table;
 
 namespace ShopOnlineApp.Areas.Admin.Controllers
 {
@@ -105,6 +105,20 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 return new OkObjectResult(id);
             }
         }
+        [HttpPost]
+        public IActionResult SaveQuantities(int productId, List<ProductQuantityViewModel> quantities)
+        {
+            _productService.AddQuantity(productId, quantities);
+            _productService.Save();
+            return new OkObjectResult(quantities);
+        }
+
+        [HttpGet]
+        public IActionResult GetQuantities(int productId)
+        {
+            var quantities = _productService.GetQuantities(productId);
+            return new OkObjectResult(quantities);
+        }
 
         [HttpPost]
         public IActionResult ImportExcel(IList<IFormFile> files, int categoryId)
@@ -135,7 +149,6 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
             }
             return new NoContentResult();
         }
-
         [HttpPost]
         public IActionResult ExportExcel()
         {
