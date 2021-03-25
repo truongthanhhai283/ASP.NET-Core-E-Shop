@@ -79,6 +79,7 @@ namespace ShopOnlineApp
             services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
 
             //services.AddTransient<IProductCategoryService, ProductCategoryService>();
+            services.AddTransient<IPermissionRepository, PermissionRepository>();
 
 
             services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
@@ -97,6 +98,9 @@ namespace ShopOnlineApp
 
             services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
             services.AddTransient(typeof(IRepository<,>), typeof(EFRepository<,>));
+
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IRoleService, RoleService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
