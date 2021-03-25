@@ -120,6 +120,24 @@
             });
             return false;
         });
+
+        $('#btn-export').on('click', function () {
+            $.ajax({
+                type: "POST",
+                url: "/Admin/Product/ExportExcel",
+                beforeSend: function () {
+                    shoponline.startLoading();
+                },
+                success: function (response) {
+                    window.location.href = response;
+                    shoponline.stopLoading();
+                },
+                error: function () {
+                    shoponline.notify('Has an error in progress', 'error');
+                    shoponline.stopLoading();
+                }
+            });
+        });
     }
 
     function registerControls() {

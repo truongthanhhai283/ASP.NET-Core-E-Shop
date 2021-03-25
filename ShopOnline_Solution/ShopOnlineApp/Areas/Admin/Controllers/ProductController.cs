@@ -9,6 +9,9 @@ using System.Net.Http.Headers;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Product;
 using ShopOnlineApp.Utilities.Helpers;
+using System;
+using OfficeOpenXml;
+using OfficeOpenXml.Table;
 
 namespace ShopOnlineApp.Areas.Admin.Controllers
 {
@@ -131,6 +134,35 @@ namespace ShopOnlineApp.Areas.Admin.Controllers
                 return new OkObjectResult(filePath);
             }
             return new NoContentResult();
+        }
+
+        [HttpPost]
+        public IActionResult ExportExcel()
+        {
+            string sWebRootFolder = _hostingEnvironment.WebRootPath;
+            string directory = Path.Combine(sWebRootFolder, "export-files");
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+            string sFileName = $"Product_{DateTime.Now:yyyyMMddhhmmss}.xlsx";
+            string fileUrl = $"{Request.Scheme}://{Request.Host}/export-files/{sFileName}";
+            FileInfo file = new FileInfo(Path.Combine(directory, sFileName));
+            if (file.Exists)
+            {
+                file.Delete();
+                file = new FileInfo(Path.Combine(sWebRootFolder, sFileName));
+            }
+            var products = _productService.GetAll();
+            using (ExcelPackage package = new ExcelPackage(file))
+            {
+                // add a new worksheet to the empty workbook
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Products");
+                worksheet.Cells["A1"].LoadFromCollection(products, true, TableStyles.Light1);
+                worksheet.Cells.AutoFitColumns();
+                package.Save(); //Save the workbook.
+            }
+            return new OkObjectResult(fileUrl);
         }
         #endregion AJAX API
     }

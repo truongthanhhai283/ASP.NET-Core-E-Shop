@@ -10,6 +10,7 @@
 *.userosscache
 *.sln.docstates
 /ShopOnline/wwwroot/uploaded/excels
+/ShopOnline/wwwroot/export-files
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
