@@ -152,7 +152,7 @@
                         OriginalPrice: originalPrice,
                         PromotionPrice: promotionPrice,
                         Description: description,
-                        Content: '',
+                        Content: content,
                         HomeFlag: showHome,
                         HotFlag: hot,
                         Tags: tags,
