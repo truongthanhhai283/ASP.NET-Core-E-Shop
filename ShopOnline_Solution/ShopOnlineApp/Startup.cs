@@ -100,6 +100,8 @@ namespace ShopOnlineApp
             services.AddTransient<IFunctionRepository, FunctionRepository>();
             services.AddTransient<ITagRepository, TagRepository>();
             services.AddTransient<IProductTagRepository, ProductTagRepository>();
+            services.AddTransient<IProductImageRepository, ProductImageRepository>();
+
 
             //Serrvices
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
