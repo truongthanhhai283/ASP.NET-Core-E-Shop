@@ -1,14 +1,20 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
-using ShopOnlineApp.Data.Entities;
+using Microsoft.Extensions.Options;
+using ShopOnlineApp.Models;
 using ShopOnlineApp.Models.AccountViewModels;
 using ShopOnlineApp.Services;
-using System;
-using System.Security.Claims;
-using System.Threading.Tasks;
+using ShopOnlineApp.Data.Entities;
+using ShopOnlineApp.Data.Enums;
 
 namespace ShopOnlineApp.Controllers
 {
@@ -217,24 +223,34 @@ namespace ShopOnlineApp.Controllers
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var user = new AppUser { UserName = model.Email, Email = model.Email };
-                var result = await _userManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    _logger.LogInformation("User created a new account with password.");
-
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
-                    await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
-
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    _logger.LogInformation("User created a new account with password.");
-                    return RedirectToLocal(returnUrl);
-                }
-                AddErrors(result);
+                return View(model);
             }
+            //MM/dd/yyy
+            var user = new AppUser {
+                UserName = model.Email,
+                Email = model.Email,
+                FullName = model.FullName,
+                PhoneNumber = model.PhoneNumber,
+                BirthDay  = model.BirthDay,
+                Status= Status.Active,
+                Avatar = string.Empty
+            };
+            var result = await _userManager.CreateAsync(user, model.Password);
+            if (result.Succeeded)
+            {
+                _logger.LogInformation("User created a new account with password.");
+
+                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
+                await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
+
+                await _signInManager.SignInAsync(user, isPersistent: false);
+                _logger.LogInformation("User created a new account with password.");
+                return RedirectToLocal(returnUrl);
+            }
+            AddErrors(result);
 
             // If we got this far, something failed, redisplay form
             return View(model);
@@ -429,6 +445,7 @@ namespace ShopOnlineApp.Controllers
             return View();
         }
 
+
         [HttpGet]
         public IActionResult AccessDenied()
         {
@@ -457,6 +474,6 @@ namespace ShopOnlineApp.Controllers
             }
         }
 
-        #endregion Helpers
+        #endregion
     }
 }
