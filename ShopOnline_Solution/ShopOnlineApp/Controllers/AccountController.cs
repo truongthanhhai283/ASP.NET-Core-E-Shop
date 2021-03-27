@@ -15,6 +15,7 @@ using ShopOnlineApp.Models.AccountViewModels;
 using ShopOnlineApp.Services;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.Enums;
+using PaulMiami.AspNetCore.Mvc.Recaptcha;
 
 namespace ShopOnlineApp.Controllers
 {
@@ -219,6 +220,7 @@ namespace ShopOnlineApp.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [ValidateRecaptcha]
         [Route("register.html")]
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
+using PaulMiami.AspNetCore.Mvc.Recaptcha;
 using ShopOnlineApp.Application.Implementation;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Authorization;
@@ -63,6 +64,12 @@ namespace ShopOnlineApp
 
                 // User settings
                 options.User.RequireUniqueEmail = true;
+            });
+
+            services.AddRecaptcha(new RecaptchaOptions()
+            {
+                SiteKey = Configuration["Recaptcha:SiteKey"],
+                SecretKey = Configuration["Recaptcha:SecretKey"]
             });
 
             services.AddAutoMapper();

@@ -7,3 +7,5 @@ ASP.NET Core E Shop
 	3. bower install <package>
 	
 # update products set Datecreated=getdate()
+
+# paulmiami recapcha / google.com/recaptcha/admin
