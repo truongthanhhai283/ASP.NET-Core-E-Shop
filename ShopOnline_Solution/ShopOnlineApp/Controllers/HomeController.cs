@@ -11,8 +11,7 @@ using System.Threading.Tasks;
 namespace ShopOnlineApp.Controllers
 {
     public class HomeController : Controller
-    {
-        [Authorize]
+    {       
         public IActionResult Index()
         {
             var email = User.GetSpecificClaim("Email");
