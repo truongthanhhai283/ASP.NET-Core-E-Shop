@@ -38,6 +38,9 @@
     <None Include="Areas\Admin\Views\Product\_AddEditModal.cshtml" />
     <None Include="Areas\Admin\Views\Role\Index.cshtml" />
     <None Include="Areas\Admin\Views\Role\_AddEditModal.cshtml" />
+    <None Include="Views\Shared\Components\CategoryMenu\Default.cshtml" />
+    <None Include="Views\Shared\Components\MainMenu\Default.cshtml" />
+    <None Include="Views\Shared\Components\MobileMenu\Default.cshtml" />
     <None Include="wwwroot\admin-side\js\custom.js" />
     <None Include="wwwroot\admin-side\js\custom.min.js" />
     <None Include="wwwroot\app\controllers\product-category\index.js" />

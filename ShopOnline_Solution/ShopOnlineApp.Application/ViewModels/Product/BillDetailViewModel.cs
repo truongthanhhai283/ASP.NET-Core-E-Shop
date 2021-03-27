@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-using ShopOnlineApp.Application.ViewModels.System;
-using ShopOnlineApp.Data.Enums;
-
-namespace ShopOnlineApp.Application.ViewModels.Product
+﻿namespace ShopOnlineApp.Application.ViewModels.Product
 {
     public class BillDetailViewModel
     {
