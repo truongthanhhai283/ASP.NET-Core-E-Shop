@@ -29,6 +29,10 @@ namespace ShopOnlineApp.Application.Interfaces
 
         List<SizeViewModel> GetSizes();
 
+        ColorViewModel GetColor(int id);
+
+        SizeViewModel GetSize(int id);
+
         void Save();
     }
 }
