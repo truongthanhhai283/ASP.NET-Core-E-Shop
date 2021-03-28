@@ -5,6 +5,7 @@ using System.Text;
 using ShopOnlineApp.Application.ViewModels.Product;
 using ShopOnlineApp.Application.ViewModels.System;
 using ShopOnlineApp.Data.Entities;
+using ShopOnlineApp.Application.ViewModels.Common;
 
 namespace ShopOnlineApp.Application.AutoMapper
 {
@@ -39,6 +40,11 @@ namespace ShopOnlineApp.Application.AutoMapper
               .ConstructUsing(c => new BillDetail(c.Id, c.BillId, c.ProductId,
               c.Quantity, c.Price, c.ColorId, c.SizeId));
 
+            CreateMap<ContactViewModel, Contact>()
+               .ConstructUsing(c => new Contact(c.Id, c.Name, c.Phone, c.Email, c.Website, c.Address, c.Other, c.Lng, c.Lat, c.Status));
+
+            CreateMap<FeedbackViewModel, Feedback>()
+                .ConstructUsing(c => new Feedback(c.Id, c.Name, c.Email, c.Message, c.Status));
         }
     }
 }
