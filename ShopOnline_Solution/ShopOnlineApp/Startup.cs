@@ -17,6 +17,7 @@ using ShopOnlineApp.Data.EF;
 using ShopOnlineApp.Data.EF.Repositories;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.IRepositories;
+using ShopOnlineApp.Extensions;
 using ShopOnlineApp.Helpers;
 using ShopOnlineApp.Infrastructure.Interfaces;
 using ShopOnlineApp.Models;
@@ -77,6 +78,8 @@ namespace ShopOnlineApp
                 options.IdleTimeout = TimeSpan.FromHours(2);
                 options.Cookie.HttpOnly = true;
             });
+
+            services.AddImageResizer();
 
             services.AddAutoMapper();
             // Add application services.
@@ -163,6 +166,8 @@ namespace ShopOnlineApp
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseImageResizer();
 
             app.UseStaticFiles();
 
