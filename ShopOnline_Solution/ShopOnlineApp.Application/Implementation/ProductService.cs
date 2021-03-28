@@ -1,14 +1,9 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using OfficeOpenXml;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 using ShopOnlineApp.Application.Interfaces;
+using ShopOnlineApp.Application.ViewModels.Common;
 using ShopOnlineApp.Application.ViewModels.Product;
-using ShopOnlineApp.Data.EF.Repositories;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.Enums;
 using ShopOnlineApp.Data.IRepositories;
@@ -16,20 +11,24 @@ using ShopOnlineApp.Infrastructure.Interfaces;
 using ShopOnlineApp.Utilities.Constants;
 using ShopOnlineApp.Utilities.Dtos;
 using ShopOnlineApp.Utilities.Helpers;
-using ShopOnlineApp.Application.ViewModels.Common;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace ShopOnlineApp.Application.Implementation
 {
     public class ProductService : IProductService
     {
-        IProductRepository _productRepository;
-        ITagRepository _tagRepository;
-        IProductTagRepository _productTagRepository;
-        IProductQuantityRepository _productQuantityRepository;
-        IProductImageRepository _productImageRepository;
-        IWholePriceRepository _wholePriceRepository;
+        private IProductRepository _productRepository;
+        private ITagRepository _tagRepository;
+        private IProductTagRepository _productTagRepository;
+        private IProductQuantityRepository _productQuantityRepository;
+        private IProductImageRepository _productImageRepository;
+        private IWholePriceRepository _wholePriceRepository;
 
-        IUnitOfWork _unitOfWork;
+        private IUnitOfWork _unitOfWork;
+
         public ProductService(IProductRepository productRepository,
             ITagRepository tagRepository,
             IProductQuantityRepository productQuantityRepository,
@@ -79,7 +78,6 @@ namespace ShopOnlineApp.Application.Implementation
                     product.ProductTags.Add(productTag);
                 }
                 _productRepository.Add(product);
-
             }
             return productVm;
         }
@@ -247,8 +245,8 @@ namespace ShopOnlineApp.Application.Implementation
                     Caption = string.Empty
                 });
             }
-
         }
+
         public void AddWholePrice(int productId, List<WholePriceViewModel> wholePrices)
         {
             _wholePriceRepository.RemoveMultiple(_wholePriceRepository.FindAll(x => x.ProductId == productId).ToList());
@@ -318,7 +316,14 @@ namespace ShopOnlineApp.Application.Implementation
                             Name = t.Name
                         };
             return query.ToList();
+        }
 
+        public bool CheckAvailability(int productId, int size, int color)
+        {
+            var quantity = _productQuantityRepository.FindSingle(x => x.ColorId == color && x.SizeId == size && x.ProductId == productId);
+            if (quantity == null)
+                return false;
+            return quantity.Quantity > 0;
         }
     }
 }

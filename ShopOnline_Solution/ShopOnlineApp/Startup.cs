@@ -72,6 +72,12 @@ namespace ShopOnlineApp
                 SecretKey = Configuration["Recaptcha:SecretKey"]
             });
 
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromHours(2);
+                options.Cookie.HttpOnly = true;
+            });
+
             services.AddAutoMapper();
             // Add application services.
             services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
@@ -156,6 +162,8 @@ namespace ShopOnlineApp
             app.UseStaticFiles();
 
             app.UseAuthentication();
+
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

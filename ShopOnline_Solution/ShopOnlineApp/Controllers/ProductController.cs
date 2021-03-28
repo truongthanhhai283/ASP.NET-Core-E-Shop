@@ -6,20 +6,24 @@ using Microsoft.AspNetCore.Mvc;
 using ShopOnlineApp.Models.ProductViewModels;
 using ShopOnlineApp.Application.Interfaces;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ShopOnlineApp.Controllers
 {
     public class ProductController : Controller
     {
         IProductService _productService;
+        IBillService _billService;
         IProductCategoryService _productCategoryService;
         IConfiguration _configuration;
-        public ProductController(IProductService productService,IConfiguration configuration,
+        public ProductController(IProductService productService, IConfiguration configuration,
+            IBillService billService,
             IProductCategoryService productCategoryService)
         {
             _productService = productService;
             _productCategoryService = productCategoryService;
             _configuration = configuration;
+            _billService = billService;
         }
         [Route("products.html")]
         public IActionResult Index()
@@ -42,6 +46,7 @@ namespace ShopOnlineApp.Controllers
 
             return View(catalog);
         }
+
 
         [Route("search.html")]
         public IActionResult Search(string keyword, int? pageSize, string sortBy, int page = 1)
@@ -70,6 +75,17 @@ namespace ShopOnlineApp.Controllers
             model.UpsellProducts = _productService.GetUpsellProducts(6);
             model.ProductImages = _productService.GetImages(id);
             model.Tags = _productService.GetProductTags(id);
+            model.Colors = _billService.GetColors().Select(x => new SelectListItem()
+            {
+                Text = x.Name,
+                Value = x.Id.ToString()
+            }).ToList();
+            model.Sizes = _billService.GetSizes().Select(x => new SelectListItem()
+            {
+                Text = x.Name,
+                Value = x.Id.ToString()
+            }).ToList();
+
             return View(model);
         }
 

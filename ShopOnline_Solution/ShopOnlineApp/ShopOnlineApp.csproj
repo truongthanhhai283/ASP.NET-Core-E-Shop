@@ -39,12 +39,38 @@
     <None Include="Areas\Admin\Views\Product\_AddEditModal.cshtml" />
     <None Include="Areas\Admin\Views\Role\Index.cshtml" />
     <None Include="Areas\Admin\Views\Role\_AddEditModal.cshtml" />
+    <None Include="Views\Cart\Index.cshtml" />
     <None Include="Views\Shared\Components\CategoryMenu\Default.cshtml" />
     <None Include="Views\Shared\Components\MainMenu\Default.cshtml" />
     <None Include="Views\Shared\Components\MobileMenu\Default.cshtml" />
     <None Include="wwwroot\admin-side\js\custom.js" />
     <None Include="wwwroot\admin-side\js\custom.min.js" />
     <None Include="wwwroot\app\controllers\product-category\index.js" />
+    <None Include="wwwroot\client-side\fonts\font-awesome\fontawesome-webfont.svg" />
+    <None Include="wwwroot\client-side\fonts\font-awesome\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\client-side\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\client-side\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\client-side\fonts\pe-icon-7-stroke\Pe-icon-7-stroke.svg" />
+    <None Include="wwwroot\client-side\fonts\revicons.svg" />
+    <None Include="wwwroot\client-side\fonts\revicons\index.php" />
+    <None Include="wwwroot\client-side\fonts\revicons\revicons.svg" />
+    <None Include="wwwroot\client-side\fonts\simple-line-icons\Simple-Line-Icons.dev.svg" />
+    <None Include="wwwroot\client-side\fonts\simple-line-icons\Simple-Line-Icons.svg" />
+    <None Include="wwwroot\client-side\fonts\simple-line-icons\Simple-Line-Icons.woff2" />
+    <None Include="wwwroot\client-side\js\bootstrap.min.js" />
+    <None Include="wwwroot\client-side\js\cloud-zoom.js" />
+    <None Include="wwwroot\client-side\js\controllers\home\index.js" />
+    <None Include="wwwroot\client-side\js\countdown.js" />
+    <None Include="wwwroot\client-side\js\jquery-ui.js" />
+    <None Include="wwwroot\client-side\js\jquery.bxslider.js" />
+    <None Include="wwwroot\client-side\js\jquery.flexslider.js" />
+    <None Include="wwwroot\client-side\js\jquery.magnifying-zoom.js" />
+    <None Include="wwwroot\client-side\js\jquery.min.js" />
+    <None Include="wwwroot\client-side\js\main.js" />
+    <None Include="wwwroot\client-side\js\mobile-menu.js" />
+    <None Include="wwwroot\client-side\js\owl.carousel.min.js" />
+    <None Include="wwwroot\client-side\js\revolution-extension.js" />
+    <None Include="wwwroot\client-side\js\revolution-slider.js" />
     <None Include="wwwroot\lib\ckeditor\.github\ISSUE_TEMPLATE" />
     <None Include="wwwroot\lib\twbs-pagination\README.md" />
   </ItemGroup>
@@ -66,6 +92,18 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\client-app\css\shortcodes\" />
+    <Folder Include="wwwroot\client-app\fonts\font-awesome\" />
+    <Folder Include="wwwroot\client-app\fonts\pe-icon-7-stroke\" />
+    <Folder Include="wwwroot\client-app\fonts\revicons\" />
+    <Folder Include="wwwroot\client-app\fonts\simple-line-icons\" />
+    <Folder Include="wwwroot\client-app\images\products\" />
+    <Folder Include="wwwroot\client-app\images\slider\" />
+    <Folder Include="wwwroot\client-app\js\controllers\home\" />
+    <Folder Include="wwwroot\client-app\js\controllers\product\" />
   </ItemGroup>
 
 </Project>
