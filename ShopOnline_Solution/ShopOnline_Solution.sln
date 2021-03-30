@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnlineApp", "ShopOnlineApp\ShopOnlineApp.csproj", "{2C6EF15C-FFA8-4CA7-BD3D-280BA7DD1B49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnlineApp", "ShopOnlineApp\ShopOnlineApp.csproj", "{2C6EF15C-FFA8-4CA7-BD3D-280BA7DD1B49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnlineApp.Infrastructure", "ShopOnlineApp.Infrastructure\ShopOnlineApp.Infrastructure.csproj", "{711C63B7-89A9-48E7-A41E-D63DF5FA37E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnlineApp.Infrastructure", "ShopOnlineApp.Infrastructure\ShopOnlineApp.Infrastructure.csproj", "{711C63B7-89A9-48E7-A41E-D63DF5FA37E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnlineApp.Application", "ShopOnlineApp.Application\ShopOnlineApp.Application.csproj", "{CBBF055D-90FA-42AB-8E57-13D2EC8A4291}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnlineApp.Application", "ShopOnlineApp.Application\ShopOnlineApp.Application.csproj", "{CBBF055D-90FA-42AB-8E57-13D2EC8A4291}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnlineApp.Data.EF", "ShopOnlineApp.Data.EF\ShopOnlineApp.Data.EF.csproj", "{2B67A8FF-F9E0-46C9-AF62-532B52A06697}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnlineApp.Data.EF", "ShopOnlineApp.Data.EF\ShopOnlineApp.Data.EF.csproj", "{2B67A8FF-F9E0-46C9-AF62-532B52A06697}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnlineApp.Utilities", "ShopOnlineApp.Utilities\ShopOnlineApp.Utilities.csproj", "{0B28DD3D-5738-46B3-853C-E7B5CA351ED8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnlineApp.Utilities", "ShopOnlineApp.Utilities\ShopOnlineApp.Utilities.csproj", "{0B28DD3D-5738-46B3-853C-E7B5CA351ED8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnlineApp.Data", "ShopOnlineApp.Data\ShopOnlineApp.Data.csproj", "{67B298BF-3C35-4C3A-B047-9C3C52F079EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnlineApp.Data", "ShopOnlineApp.Data\ShopOnlineApp.Data.csproj", "{67B298BF-3C35-4C3A-B047-9C3C52F079EE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{CD8DBDB0-F05E-4147-A3C8-3774BF5C2A3C}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{A0B514D0-16DC-447D-970A-843A8401F167}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{EE021252-BE45-444F-A6DB-9DD9CC23C35F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnlineApp.Application.Dapper", "ShopOnlineApp.Application.Dapper\ShopOnlineApp.Application.Dapper.csproj", "{54815D68-CB20-4AEF-A743-A7CC4E6FCA7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{67B298BF-3C35-4C3A-B047-9C3C52F079EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67B298BF-3C35-4C3A-B047-9C3C52F079EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67B298BF-3C35-4C3A-B047-9C3C52F079EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54815D68-CB20-4AEF-A743-A7CC4E6FCA7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54815D68-CB20-4AEF-A743-A7CC4E6FCA7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54815D68-CB20-4AEF-A743-A7CC4E6FCA7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54815D68-CB20-4AEF-A743-A7CC4E6FCA7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{2B67A8FF-F9E0-46C9-AF62-532B52A06697} = {A0B514D0-16DC-447D-970A-843A8401F167}
 		{0B28DD3D-5738-46B3-853C-E7B5CA351ED8} = {EE021252-BE45-444F-A6DB-9DD9CC23C35F}
 		{67B298BF-3C35-4C3A-B047-9C3C52F079EE} = {A0B514D0-16DC-447D-970A-843A8401F167}
+		{54815D68-CB20-4AEF-A743-A7CC4E6FCA7B} = {78BEC24E-5EC8-4CAA-893C-9497FB2A3244}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B7D11729-AF0E-4971-BC7D-3AACA1F5315E}

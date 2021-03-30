@@ -10,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using PaulMiami.AspNetCore.Mvc.Recaptcha;
+using ShopOnlineApp.Application.Dapper.Implementation;
+using ShopOnlineApp.Application.Dapper.Interfaces;
 using ShopOnlineApp.Application.Implementation;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Authorization;
@@ -182,6 +184,8 @@ namespace ShopOnlineApp
             services.AddTransient<IFeedbackService, FeedbackService>();
             services.AddTransient<IContactService, ContactService>();
             services.AddTransient<IPageService, PageService>();
+            services.AddTransient<IReportService, ReportService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
