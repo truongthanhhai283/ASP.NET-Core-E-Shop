@@ -2,11 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using ShopOnlineApp.Application.ViewModels.Blog;
+using ShopOnlineApp.Application.ViewModels.Common;
 using ShopOnlineApp.Application.ViewModels.Product;
 using ShopOnlineApp.Application.ViewModels.System;
 using ShopOnlineApp.Data.Entities;
-using ShopOnlineApp.Application.ViewModels.Blog;
-using ShopOnlineApp.Application.ViewModels.Common;
 
 namespace ShopOnlineApp.Application.AutoMapper
 {
@@ -36,6 +36,8 @@ namespace ShopOnlineApp.Application.AutoMapper
 
             CreateMap<Feedback, FeedbackViewModel>().MaxDepth(2);
             CreateMap<Contact, ContactViewModel>().MaxDepth(2);
+            CreateMap<Page, PageViewModel>().MaxDepth(2);
+
         }
     }
 }

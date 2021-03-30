@@ -17,7 +17,6 @@
                 }
             }
         });
-
         $('#btnLogin').on('click', function (e) {
             if ($('#frmLogin').valid()) {
                 e.preventDefault();
@@ -25,6 +24,7 @@
                 var password = $('#txtPassword').val();
                 login(user, password);
             }
+           
         });
     }
 
@@ -32,7 +32,7 @@
         $.ajax({
             type: 'POST',
             data: {
-                UserName: user,
+                Email: user,
                 Password: pass
             },
             dateType: 'json',
@@ -42,7 +42,7 @@
                     window.location.href = "/Admin/Home/Index";
                 }
                 else {
-                    shoponline.notify('Login failed', 'error');
+                    tedu.notify('Login failed', 'error');
                 }
             }
         })

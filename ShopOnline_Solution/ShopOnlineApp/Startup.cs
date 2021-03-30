@@ -154,6 +154,7 @@ namespace ShopOnlineApp
             services.AddTransient<IWholePriceRepository, WholePriceRepository>();
 
             services.AddTransient<IBlogRepository, BlogRepository>();
+            services.AddTransient<IPageRepository, PageRepository>();
 
             services.AddTransient<IBlogTagRepository, BlogTagRepository>();
             services.AddTransient<ISlideRepository, SlideRepository>();
@@ -180,6 +181,7 @@ namespace ShopOnlineApp
             services.AddTransient<ICommonService, CommonService>();
             services.AddTransient<IFeedbackService, FeedbackService>();
             services.AddTransient<IContactService, ContactService>();
+            services.AddTransient<IPageService, PageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

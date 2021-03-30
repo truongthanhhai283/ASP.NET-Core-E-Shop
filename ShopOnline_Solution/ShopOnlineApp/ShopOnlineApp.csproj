@@ -46,12 +46,16 @@
     <None Include="Areas\Admin\Views\Product\_AddEditModal.cshtml" />
     <None Include="Areas\Admin\Views\Role\Index.cshtml" />
     <None Include="Areas\Admin\Views\Role\_AddEditModal.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\Components\SideBar\Default.cshtml" />
     <None Include="Views\Cart\Index.cshtml" />
+    <None Include="Views\Page\Index.cshtml" />
     <None Include="Views\Shared\Components\CategoryMenu\Default.cshtml" />
     <None Include="Views\Shared\Components\MainMenu\Default.cshtml" />
     <None Include="Views\Shared\Components\MobileMenu\Default.cshtml" />
     <None Include="wwwroot\admin-side\js\custom.js" />
     <None Include="wwwroot\admin-side\js\custom.min.js" />
+    <None Include="wwwroot\app\controllers\login\index.js" />
+    <None Include="wwwroot\app\controllers\page\index.js" />
     <None Include="wwwroot\app\controllers\product-category\index.js" />
     <None Include="wwwroot\client-side\fonts\font-awesome\fontawesome-webfont.svg" />
     <None Include="wwwroot\client-side\fonts\font-awesome\fontawesome-webfont.woff2" />
