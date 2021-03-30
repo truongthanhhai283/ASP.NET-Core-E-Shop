@@ -52,6 +52,8 @@ namespace ShopOnlineApp
 
             services.AddMemoryCache();
 
+            services.AddMinResponse();
+
             // Configure Identity
             services.Configure<IdentityOptions>(options =>
             {
@@ -187,6 +189,8 @@ namespace ShopOnlineApp
             app.UseImageResizer();
 
             app.UseStaticFiles();
+
+            app.UseMinResponse();
 
             app.UseAuthentication();
 

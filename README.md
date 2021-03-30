@@ -9,3 +9,5 @@ ASP.NET Core E Shop
 # update products set Datecreated=getdate()
 
 # paulmiami recapcha / google.com/recaptcha/admin
+
+# install WebMarkupMin.AspNetCore2 +  WebMarkupMin.nuglify package
