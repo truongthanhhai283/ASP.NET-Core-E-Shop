@@ -11,3 +11,5 @@ ASP.NET Core E Shop
 # paulmiami recapcha / google.com/recaptcha/admin
 
 # install WebMarkupMin.AspNetCore2 +  WebMarkupMin.nuglify package
+
+# Enable and disable google+ API
