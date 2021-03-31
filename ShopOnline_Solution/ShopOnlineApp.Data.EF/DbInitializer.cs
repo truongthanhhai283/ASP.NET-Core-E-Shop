@@ -71,8 +71,8 @@ namespace ShopOnlineApp.Data.EF
                     Phone = "0905629025",
                     Status = Status.Active,
                     Website = "http://pandashop.com",
-                    Lat = 21.0435009,
-                    Lng = 105.7894758
+                    Lat = 16.085240245971658,
+                    Lng = 108.24268092980617
                 });
             }
             if (_context.Functions.Count() == 0)
