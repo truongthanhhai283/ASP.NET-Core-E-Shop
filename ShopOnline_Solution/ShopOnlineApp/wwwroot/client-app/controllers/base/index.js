@@ -17,7 +17,7 @@
                     size: 0
                 },
                 success: function (response) {
-                    shoponline.notify('The product was added to cart', 'success');
+                    shoponline.notify(resources["AddCartOK"], 'success');
                     loadHeaderCart();
                 }
             });
@@ -33,7 +33,7 @@
                     productId: id
                 },
                 success: function (response) {
-                    shoponline.notify('The product was removed', 'success');
+                    shoponline.notify(resources["RemoveCartOK"], 'success');
                     loadHeaderCart();
                 }
             });
