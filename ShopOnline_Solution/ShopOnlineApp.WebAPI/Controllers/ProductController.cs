@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ShopOnlineApp.Application.Interfaces;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace ShopOnlineApp.WebAPI.Controllers
 {
+    [Authorize]
     public class ProductController : ApiController
     {
         IProductCategoryService _productCategoryService;
