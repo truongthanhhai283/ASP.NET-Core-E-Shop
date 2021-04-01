@@ -182,7 +182,7 @@
             var originalPrice = $('#txtOriginalPriceM').val();
             var promotionPrice = $('#txtPromotionPriceM').val();
 
-            //var image = $('#txtImageM').val();
+            var image = $('#txtImage').val();
 
             var tags = $('#txtTagM').val();
             var seoKeyword = $('#txtMetakeywordM').val();
@@ -202,7 +202,7 @@
                     Id: id,
                     Name: name,
                     CategoryId: categoryId,
-                    Image: '',
+                    Image: image,
                     Price: price,
                     OriginalPrice: originalPrice,
                     PromotionPrice: promotionPrice,
@@ -284,7 +284,7 @@
                 $('#txtOriginalPriceM').val(data.OriginalPrice);
                 $('#txtPromotionPriceM').val(data.PromotionPrice);
 
-                // $('#txtImageM').val(data.ThumbnailImage);
+                $('#txtImage').val(data.Image);
 
                 $('#txtTagM').val(data.Tags);
                 $('#txtMetakeywordM').val(data.SeoKeywords);
