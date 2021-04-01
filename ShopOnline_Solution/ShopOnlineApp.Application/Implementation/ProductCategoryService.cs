@@ -1,24 +1,21 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Product;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.Enums;
-using ShopOnlineApp.Data.IRepositories;
 using ShopOnlineApp.Infrastructure.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ShopOnlineApp.Application.Implementation
 {
     public class ProductCategoryService : IProductCategoryService
     {
-        private IProductCategoryRepository _productCategoryRepository;
+        private IRepository<ProductCategory, int> _productCategoryRepository;
         private IUnitOfWork _unitOfWork;
 
-        public ProductCategoryService(IProductCategoryRepository productCategoryRepository,
+        public ProductCategoryService(IRepository<ProductCategory, int> productCategoryRepository,
             IUnitOfWork unitOfWork)
         {
             _productCategoryRepository = productCategoryRepository;
@@ -30,7 +27,6 @@ namespace ShopOnlineApp.Application.Implementation
             var productCategory = Mapper.Map<ProductCategoryViewModel, ProductCategory>(productCategoryVm);
             _productCategoryRepository.Add(productCategory);
             return productCategoryVm;
-
         }
 
         public void Delete(int id)
@@ -119,7 +115,7 @@ namespace ShopOnlineApp.Application.Implementation
 
             //Get all sibling
             var sibling = _productCategoryRepository.FindAll(x => items.ContainsKey(x.Id));
-            foreach(var child in sibling)
+            foreach (var child in sibling)
             {
                 child.SortOrder = items[child.Id];
                 _productCategoryRepository.Update(child);

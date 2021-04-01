@@ -2,34 +2,34 @@
 using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.System;
 using ShopOnlineApp.Data.Entities;
-using ShopOnlineApp.Data.IRepositories;
 using ShopOnlineApp.Infrastructure.Interfaces;
 using ShopOnlineApp.Utilities.Dtos;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ShopOnlineApp.Application.Implementation
 {
     public class RoleService : IRoleService
     {
         private RoleManager<AppRole> _roleManager;
-        private IFunctionRepository _functionRepository;
-        private IPermissionRepository _permissionRepository;
+        private IRepository<Function, string> _functionRepository;
+        private IRepository<Permission, int> _permissionRepository;
         private IUnitOfWork _unitOfWork;
+
         public RoleService(RoleManager<AppRole> roleManager, IUnitOfWork unitOfWork,
-         IFunctionRepository functionRepository, IPermissionRepository permissionRepository)
+         IRepository<Function, string> functionRepository, IRepository<Permission, int> permissionRepository)
         {
             _unitOfWork = unitOfWork;
             _roleManager = roleManager;
             _functionRepository = functionRepository;
             _permissionRepository = permissionRepository;
         }
+
         public async Task<bool> AddAsync(AppRoleViewModel roleVm)
         {
             var role = new AppRole()

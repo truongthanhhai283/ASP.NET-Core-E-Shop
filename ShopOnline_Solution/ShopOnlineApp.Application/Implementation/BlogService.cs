@@ -1,32 +1,29 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Blog;
 using ShopOnlineApp.Application.ViewModels.Common;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.Enums;
-using ShopOnlineApp.Data.IRepositories;
 using ShopOnlineApp.Infrastructure.Interfaces;
 using ShopOnlineApp.Utilities.Constants;
 using ShopOnlineApp.Utilities.Dtos;
 using ShopOnlineApp.Utilities.Helpers;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ShopOnlineApp.Application.Implementation
 {
     public class BlogService : IBlogService
     {
-        private readonly IBlogRepository _blogRepository;
-        private readonly ITagRepository _tagRepository;
-        private readonly IBlogTagRepository _blogTagRepository;
+        private readonly IRepository<Blog, int> _blogRepository;
+        private readonly IRepository<Tag, string> _tagRepository;
+        private readonly IRepository<BlogTag, int> _blogTagRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public BlogService(IBlogRepository blogRepository,
-            IBlogTagRepository blogTagRepository,
-            ITagRepository tagRepository,
+        public BlogService(IRepository<Blog, int> blogRepository,
+            IRepository<BlogTag, int> blogTagRepository,
+            IRepository<Tag, string> tagRepository,
             IUnitOfWork unitOfWork)
         {
             _blogRepository = blogRepository;

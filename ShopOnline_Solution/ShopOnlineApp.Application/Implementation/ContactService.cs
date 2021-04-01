@@ -1,24 +1,22 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Common;
 using ShopOnlineApp.Data.Entities;
-using ShopOnlineApp.Data.IRepositories;
 using ShopOnlineApp.Infrastructure.Interfaces;
 using ShopOnlineApp.Utilities.Dtos;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ShopOnlineApp.Application.Implementation
 {
     public class ContactService : IContactService
     {
-        private IContactRepository _contactRepository;
+        private IRepository<Contact, string> _contactRepository;
         private IUnitOfWork _unitOfWork;
 
-        public ContactService(IContactRepository contactRepository,
+        public ContactService(IRepository<Contact, string> contactRepository,
             IUnitOfWork unitOfWork)
         {
             this._contactRepository = contactRepository;
@@ -67,7 +65,6 @@ namespace ShopOnlineApp.Application.Implementation
 
             return paginationSet;
         }
-
 
         public ContactViewModel GetById(string id)
         {

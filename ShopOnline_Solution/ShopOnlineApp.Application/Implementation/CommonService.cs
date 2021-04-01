@@ -1,31 +1,26 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using ShopOnlineApp.Application.Interfaces;
-using ShopOnlineApp.Application.ViewModels.Blog;
 using ShopOnlineApp.Application.ViewModels.Common;
 using ShopOnlineApp.Data.Entities;
-using ShopOnlineApp.Data.IRepositories;
 using ShopOnlineApp.Infrastructure.Interfaces;
 using ShopOnlineApp.Utilities.Constants;
-using ShopOnlineApp.Utilities.Dtos;
-using ShopOnlineApp.Utilities.Helpers;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ShopOnlineApp.Application.Implementation
 {
     public class CommonService : ICommonService
     {
-        IFooterRepository _footerRepository;
-        ISystemConfigRepository _systemConfigRepository;
-        IUnitOfWork _unitOfWork;
-        ISlideRepository _slideRepository;
-        public CommonService(IFooterRepository footerRepository,
-            ISystemConfigRepository systemConfigRepository,
+        private IRepository<Footer, string> _footerRepository;
+        private IRepository<SystemConfig, string> _systemConfigRepository;
+        private IUnitOfWork _unitOfWork;
+        private IRepository<Slide, int> _slideRepository;
+
+        public CommonService(IRepository<Footer, string> footerRepository,
+            IRepository<SystemConfig, string> systemConfigRepository,
             IUnitOfWork unitOfWork,
-            ISlideRepository slideRepository)
+            IRepository<Slide, int> slideRepository)
         {
             _footerRepository = footerRepository;
             _unitOfWork = unitOfWork;

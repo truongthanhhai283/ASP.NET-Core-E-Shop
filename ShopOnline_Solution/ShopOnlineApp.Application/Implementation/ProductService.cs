@@ -6,7 +6,6 @@ using ShopOnlineApp.Application.ViewModels.Common;
 using ShopOnlineApp.Application.ViewModels.Product;
 using ShopOnlineApp.Data.Entities;
 using ShopOnlineApp.Data.Enums;
-using ShopOnlineApp.Data.IRepositories;
 using ShopOnlineApp.Infrastructure.Interfaces;
 using ShopOnlineApp.Utilities.Constants;
 using ShopOnlineApp.Utilities.Dtos;
@@ -20,22 +19,22 @@ namespace ShopOnlineApp.Application.Implementation
 {
     public class ProductService : IProductService
     {
-        private IProductRepository _productRepository;
-        private ITagRepository _tagRepository;
-        private IProductTagRepository _productTagRepository;
-        private IProductQuantityRepository _productQuantityRepository;
-        private IProductImageRepository _productImageRepository;
-        private IWholePriceRepository _wholePriceRepository;
+        private IRepository<Product, int> _productRepository;
+        private IRepository<Tag, string> _tagRepository;
+        private IRepository<ProductTag, int> _productTagRepository;
+        private IRepository<ProductQuantity, int> _productQuantityRepository;
+        private IRepository<ProductImage, int> _productImageRepository;
+        private IRepository<WholePrice, int> _wholePriceRepository;
 
         private IUnitOfWork _unitOfWork;
 
-        public ProductService(IProductRepository productRepository,
-            ITagRepository tagRepository,
-            IProductQuantityRepository productQuantityRepository,
-            IProductImageRepository productImageRepository,
-            IWholePriceRepository wholePriceRepository,
+        public ProductService(IRepository<Product, int> productRepository,
+            IRepository<Tag, string> tagRepository,
+            IRepository<ProductQuantity, int> productQuantityRepository,
+            IRepository<ProductImage, int> productImageRepository,
+            IRepository<WholePrice, int> wholePriceRepository,
         IUnitOfWork unitOfWork,
-        IProductTagRepository productTagRepository)
+        IRepository<ProductTag, int> productTagRepository)
         {
             _productRepository = productRepository;
             _tagRepository = tagRepository;

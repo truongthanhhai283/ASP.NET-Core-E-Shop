@@ -239,7 +239,7 @@
         }
     }
 
-    function deleteProduct(id) {
+    function deleteProduct(that) {
         shoponline.confirm('Are you sure to delete?', function () {
             $.ajax({
                 type: "POST",
@@ -262,7 +262,7 @@
         });
     }
 
-    function loadDetails(id) {
+    function loadDetails(that) {
         $.ajax({
             type: "GET",
             url: "/Admin/Product/GetById",

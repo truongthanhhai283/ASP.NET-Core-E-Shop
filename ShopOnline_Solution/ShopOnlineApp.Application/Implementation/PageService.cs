@@ -1,24 +1,22 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Application.ViewModels.Blog;
 using ShopOnlineApp.Data.Entities;
-using ShopOnlineApp.Data.IRepositories;
 using ShopOnlineApp.Infrastructure.Interfaces;
 using ShopOnlineApp.Utilities.Dtos;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ShopOnlineApp.Application.Implementation
 {
     public class PageService : IPageService
     {
-        private IPageRepository _pageRepository;
+        private IRepository<Page, int> _pageRepository;
         private IUnitOfWork _unitOfWork;
 
-        public PageService(IPageRepository pageRepository,
+        public PageService(IRepository<Page, int> pageRepository,
             IUnitOfWork unitOfWork)
         {
             this._pageRepository = pageRepository;

@@ -18,21 +18,15 @@ using ShopOnlineApp.Application.Dapper.Interfaces;
 using ShopOnlineApp.Application.Implementation;
 using ShopOnlineApp.Application.Interfaces;
 using ShopOnlineApp.Authorization;
-using ShopOnlineApp.Data;
 using ShopOnlineApp.Data.EF;
-using ShopOnlineApp.Data.EF.Repositories;
 using ShopOnlineApp.Data.Entities;
-using ShopOnlineApp.Data.IRepositories;
 using ShopOnlineApp.Extensions;
 using ShopOnlineApp.Helpers;
 using ShopOnlineApp.Infrastructure.Interfaces;
-using ShopOnlineApp.Models;
 using ShopOnlineApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ShopOnlineApp
 {
@@ -100,7 +94,8 @@ namespace ShopOnlineApp
                    facebookOpts.AppId = Configuration["Authentication:Facebook:AppId"];
                    facebookOpts.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
                })
-               .AddGoogle(googleOpts => {
+               .AddGoogle(googleOpts =>
+               {
                    googleOpts.ClientId = Configuration["Authentication:Google:ClientId"];
                    googleOpts.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
                });
@@ -119,19 +114,8 @@ namespace ShopOnlineApp
 
             services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, CustomClaimsPrincipalFactory>();
 
-            services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
-
             //services.AddTransient<IProductCategoryService, ProductCategoryService>();
-            services.AddTransient<IPermissionRepository, PermissionRepository>();
-
-            services.AddTransient<IBillRepository, BillRepository>();
-            services.AddTransient<IBillDetailRepository, BillDetailRepository>();
-            services.AddTransient<IColorRepository, ColorRepository>();
-            services.AddTransient<ISizeRepository, SizeRepository>();
-            services.AddTransient<IProductQuantityRepository, ProductQuantityRepository>();
-            services.AddTransient<IFeedbackRepository, FeedbackRepository>();
-            services.AddTransient<IContactRepository, ContactRepository>();
-
+          
             services.AddMvc(options =>
             {
                 options.CacheProfiles.Add("Default",
@@ -171,26 +155,6 @@ namespace ShopOnlineApp
 
             services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
 
-            //Repositories
-            services.AddTransient<IProductRepository, ProductRepository>();
-            services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
-            services.AddTransient<IFunctionRepository, FunctionRepository>();
-            services.AddTransient<ITagRepository, TagRepository>();
-            services.AddTransient<IProductTagRepository, ProductTagRepository>();
-            services.AddTransient<IProductImageRepository, ProductImageRepository>();
-            services.AddTransient<IWholePriceRepository, WholePriceRepository>();
-
-            services.AddTransient<IBlogRepository, BlogRepository>();
-            services.AddTransient<IPageRepository, PageRepository>();
-
-            services.AddTransient<IBlogTagRepository, BlogTagRepository>();
-            services.AddTransient<ISlideRepository, SlideRepository>();
-            services.AddTransient<ISystemConfigRepository, SystemConfigRepository>();
-
-            services.AddTransient<IFooterRepository, FooterRepository>();
-
-
-
             //Serrvices
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
             services.AddTransient<IFunctionService, FunctionService>();
@@ -210,7 +174,6 @@ namespace ShopOnlineApp
             services.AddTransient<IContactService, ContactService>();
             services.AddTransient<IPageService, PageService>();
             services.AddTransient<IReportService, ReportService>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -251,7 +214,6 @@ namespace ShopOnlineApp
                 routes.MapRoute(name: "areaRoute",
                     template: "{area:exists}/{controller=Login}/{action=Index}/{id?}");
             });
-
         }
     }
 }
